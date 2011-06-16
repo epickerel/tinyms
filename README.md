@@ -22,5 +22,3 @@ Example
 To do:
 ------
 * Add option for changing the add link text
-* Add basic css
-* Create a demo

@@ -4,13 +4,13 @@
 var widgetname = 'ui-widget-multiselect',
   classwidgetname = ' class="' + widgetname,
   ui_state_active = 'ui-state-active',
-  selectListItemTemplate = '<li><a href="#">{l}</a></li>',
-  $body = $('body'),
+  ahref = '<a href="#"',
+  selectListItemTemplate = '<li>' + ahref + '>{l}</a></li>',
   create, ddMultilist, populateList;
 
 ddMultilist = function($ul, onChange, $offsetEl){
   var toggle, opening, open, shut;
-  $ul.appendTo($body).css('position', 'absolute');
+  $ul.appendTo('body').css('position', 'absolute');
   toggle = function($selectLi) {
     var selected = !$selectLi.hasClass(ui_state_active);
     $selectLi.toggleClass(ui_state_active)
@@ -22,7 +22,7 @@ ddMultilist = function($ul, onChange, $offsetEl){
     var t = ev.target;
     toggle(t.nodeName === 'LI' ? $(t) : $(t).closest('li'));
   });
-  $body.click(function(ev){
+  $(document).click(function(ev){
     if (!opening) {
       var t = $(ev.target);
       if (t.closest('ul.' + widgetname + '-select').length === 0) {
@@ -59,7 +59,7 @@ populateList = function($select, $list){
 create = function($select){
   var $outer = $([
       '<div', classwidgetname, '">',
-        '<a', classwidgetname, '-add"><span>Add...</span></a>',
+        ahref, classwidgetname, '-add"><span>Add...</span></a>',
         '<ul', classwidgetname, '-select"></ul>',
         '<p', classwidgetname, '-list"></p>',
       '</div>'].join('')),
