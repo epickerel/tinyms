@@ -1,11 +1,3 @@
-body {
-  font-family: arial, sans-serif;
-  font-size: 14px;
-}
-label {
-  width: 10em;
-  text-align: right;
-}
 select.select-multiple {
   position: absolute;
   left: -999em;
